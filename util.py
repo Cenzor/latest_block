@@ -16,9 +16,6 @@ def get_block_info():
     response = es.index(index=index, id=1, document=block_info)
     print(response['result'])
 
-    response = es.get(index=index, id=1)
-    print(response['_source'])
-
     es.indices.refresh(index=index)
 
     response = es.search(index=index, query={"match_all": {}})
